@@ -1,9 +1,9 @@
-package stopwatch
+package stopwatch_test
 
 import (
 	"time"
 	"testing"
-	"stopwatch"
+	"github.com/Tiofx/stopwatch"
 )
 
 const epsilon = 5 * time.Millisecond
