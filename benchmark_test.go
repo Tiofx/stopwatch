@@ -2,7 +2,7 @@ package stopwatch_test
 
 import (
 	"testing"
-	"stopwatch"
+	"github.com/Tiofx/stopwatch"
 )
 
 var (
