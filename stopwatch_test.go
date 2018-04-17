@@ -1,4 +1,4 @@
-package stopwatch
+package stopwatch_test
 
 import (
 	"time"
