@@ -1,18 +1,18 @@
 package stopwatch_test
 
 import (
-	"github.com/Tiofx/stopwatch"
 	"fmt"
+	"github.com/Tiofx/stopwatch"
 	"time"
 )
 
-func ExampleStopwatch_Display_1() {
+func ExampleStopwatch_Display_first() {
 	fmt.Println(stopwatch.New().Display())
 	//	Output: 0s
 }
 
 // Show method invocation time.
-func ExampleStopwatch_Display_2() {
+func ExampleStopwatch_Display_second() {
 	s := stopwatch.New()
 
 	s.PressTopButton()
@@ -21,7 +21,7 @@ func ExampleStopwatch_Display_2() {
 	fmt.Println(s.Display())
 }
 
-func ExampleStopwatch_Display_3() {
+func ExampleStopwatch_Display_third() {
 	delay := 10 * time.Millisecond
 	s := stopwatch.New()
 
@@ -38,7 +38,7 @@ func ExampleStopwatch_State() {
 	//	Output: true
 }
 
-func ExampleStopwatch_State_1() {
+func ExampleStopwatch_State_first() {
 	s := stopwatch.New()
 	s.PressTopButton()
 
@@ -46,7 +46,7 @@ func ExampleStopwatch_State_1() {
 	//	Output: true
 }
 
-func ExampleStopwatch_State_2a() {
+func ExampleStopwatch_State_secondA() {
 	s := stopwatch.New()
 	s.PressTopButton()
 	s.PressSecondButton()
@@ -55,7 +55,7 @@ func ExampleStopwatch_State_2a() {
 	//	Output: false
 }
 
-func ExampleStopwatch_State_2b() {
+func ExampleStopwatch_State_secondB() {
 	s := stopwatch.New()
 	s.PressTopButton()
 	s.PressSecondButton()

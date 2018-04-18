@@ -1,8 +1,8 @@
 package stopwatch
 
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
 // The Stopwatch type represents a two button Stopwatch.
