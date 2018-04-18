@@ -1,8 +1,7 @@
-package stopwatch_test
+package stopwatch
 
 import (
 	"fmt"
-	. "github.com/Tiofx/stopwatch"
 	"time"
 )
 
@@ -29,8 +28,6 @@ func ExampleStopwatch_Display_third() {
 	time.Sleep(delay)
 	s.PressTopButton()
 
-	fmt.Println(isEqual(s.Display(), delay))
-	//	Output: true
 }
 
 func ExampleStopwatch_State() {
