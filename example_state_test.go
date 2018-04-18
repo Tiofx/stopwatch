@@ -1,23 +1,22 @@
-package stopwatch_test
+package stopwatch
 
 import (
 	"fmt"
-	"github.com/Tiofx/stopwatch"
 )
 
-func ExampleState_HasSplitTime() {
-	state := stopwatch.Stopped
+func Examplestate_HasSplitTime() {
+	state := Stopped
 	fmt.Println(state.HasSplitTime())
 	//	Output: false
 }
 
-func ExampleState_WithoutSplitTime() {
-	state := stopwatch.Stopped.WithSplitTime()
-	fmt.Println(state.WithoutSplitTime() == stopwatch.Stopped)
+func Examplestate_WithoutSplitTime() {
+	state := Stopped.WithSplitTime()
+	fmt.Println(state.WithoutSplitTime() == Stopped)
 	//	Output: true
 }
 
-func ExampleState_String() {
-	fmt.Println(stopwatch.Running.WithSplitTime())
+func Examplestate_String() {
+	fmt.Println(Running.WithSplitTime())
 	//	Output: running and record split time
 }
