@@ -5,3 +5,5 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/Tiofx/stopwatch)](https://goreportcard.com/report/github.com/Tiofx/stopwatch)
 [![CodeFactor](https://www.codefactor.io/repository/github/tiofx/stopwatch/badge/master)](https://www.codefactor.io/repository/github/tiofx/stopwatch/overview/master)
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-go.svg)](https://forthebadge.com)
