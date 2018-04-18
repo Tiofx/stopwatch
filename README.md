@@ -7,4 +7,5 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/tiofx/stopwatch/badge/master)](https://www.codefactor.io/repository/github/tiofx/stopwatch/overview/master)
 
 [![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/its-not-a-lie-if-you-believe-it.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-go.svg)](https://forthebadge.com)
