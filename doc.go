@@ -1,5 +1,5 @@
 /*
-	Package stopwatch implements a two button stopwatch.
+Package stopwatch implements a two button stopwatch.
 
 	A stopwatch is a handheld timepiece designed to measure
 	the amount of time elapsed from a particular time when
