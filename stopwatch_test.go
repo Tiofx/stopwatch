@@ -1,110 +1,79 @@
 package stopwatch_test
 
 import (
-	. "github.com/Tiofx/stopwatch"
-	"testing"
+	"fmt"
+	"github.com/Tiofx/stopwatch"
 	"time"
 )
 
-const epsilon = 5 * time.Millisecond
-
-func isEqual(a, b time.Duration) bool { return time.Duration(uint(a-b)) <= epsilon }
-
-func TestStopwatch_1(t *testing.T) {
-	sw := New()
-	if !(sw.Display() == 0 && sw.State().WithoutSplitTime() == Initial) {
-		t.Fail()
-	}
+func ExampleStopwatch_Display_first() {
+	fmt.Println(stopwatch.New().Display())
+	//	Output: 0s
 }
 
-func TestStopwatch_StatesMove(t *testing.T) {
-	sw := New()
+// Show method invocation time.
+func ExampleStopwatch_Display_second() {
+	s := stopwatch.New()
 
-	emptyMethod,
-		topButton,
-		secondButton,
-		runSplit :=
-		func() {},
-		sw.PressTopButton,
-		sw.PressSecondButton,
-		func() { sw.PressTopButton(); sw.PressSecondButton() }
+	s.PressTopButton()
+	s.PressTopButton()
 
-	testTable := []struct {
-		method   func()
-		expected interface{}
-	}{
-		{emptyMethod, Initial},
-		{secondButton, Initial},
-		{secondButton, Initial},
-		{topButton, Running},
-		{topButton, Stopped},
-		{secondButton, Initial},
-		{runSplit, Running.WithSplitTime()},
-		{secondButton, Running},
-		{secondButton, Running.WithSplitTime()},
-		{topButton, Stopped.WithSplitTime()},
-		{topButton, Running.WithSplitTime()},
-		{topButton, Stopped.WithSplitTime()},
-		{secondButton, Stopped},
-		{secondButton, Initial},
-	}
-
-	for i, test := range testTable {
-		test.method()
-		if sw.State() != test.expected {
-			t.Errorf("test [%v], exptected [%v] != actual [%v]", i, test.expected, sw.State())
-		}
-	}
+	fmt.Println(s.Display())
 }
 
-func TestStopwatch_Time(t *testing.T) {
-	sw := New()
+func ExampleStopwatch_Display_third() {
+	delay := 10 * time.Millisecond
+	s := stopwatch.New()
 
-	emptyMethod,
-		topButton,
-		secondButton :=
-		func() {},
-		sw.PressTopButton,
-		sw.PressSecondButton
+	s.PressTopButton()
+	time.Sleep(delay)
+	s.PressTopButton()
 
-	testTable := [][]struct {
-		method                 func()
-		expectedTime, waitTime time.Duration
-	}{
-		{
-			{emptyMethod, 0, 4 * time.Millisecond},
-			{topButton, 0, 10 * time.Millisecond},
-			{topButton, 10 * time.Millisecond, 7 * time.Millisecond},
-			{emptyMethod, 10 * time.Millisecond, 8 * time.Millisecond},
-			{secondButton, 0, 3 * time.Millisecond},
-		},
-		{
-			{topButton, 0, 8 * time.Millisecond},
-			{topButton, 8 * time.Millisecond, 4 * time.Millisecond},
-			{topButton, 8 * time.Millisecond, 12 * time.Millisecond},
-			{secondButton, 20 * time.Millisecond, 6 * time.Millisecond},
-			{topButton, 20 * time.Millisecond, 10 * time.Millisecond},
-			{topButton, 20 * time.Millisecond, 13 * time.Millisecond},
-			{topButton, 20 * time.Millisecond, 13 * time.Millisecond},
-			{secondButton, 46 * time.Millisecond, 13 * time.Millisecond},
-			{secondButton, 0, 0},
-		},
-	}
+	fmt.Println(isEqual(s.Display(), delay))
+	//	Output: true
+}
 
-	tester := func(t *testing.T, tests []struct {
-		method                 func()
-		expectedTime, waitTime time.Duration
-	}) {
-		for i, test := range tests {
-			test.method()
-			if !isEqual(sw.Display(), test.expectedTime) {
-				t.Errorf("tester [%v], exptected [%v] != actual [%v]", i, test.expectedTime, sw.Display())
-			}
+func ExampleStopwatch_State() {
+	fmt.Println(stopwatch.New().State() == stopwatch.Initial)
+	//	Output: true
+}
 
-			time.Sleep(test.waitTime)
-		}
-	}
+func ExampleStopwatch_State_first() {
+	s := stopwatch.New()
+	s.PressTopButton()
 
-	t.Run("start/idle/stop/reset", func(t *testing.T) { tester(t, testTable[0]) })
-	t.Run("split time", func(t *testing.T) { tester(t, testTable[1]) })
+	fmt.Println(s.State() == stopwatch.Running)
+	//	Output: true
+}
+
+func ExampleStopwatch_State_secondA() {
+	s := stopwatch.New()
+	s.PressTopButton()
+	s.PressSecondButton()
+
+	fmt.Println(s.State() == stopwatch.Running)
+	//	Output: false
+}
+
+func ExampleStopwatch_State_secondB() {
+	s := stopwatch.New()
+	s.PressTopButton()
+	s.PressSecondButton()
+
+	fmt.Println(
+		s.State() == stopwatch.Running.WithSplitTime() &&
+			s.State().HasSplitTime() &&
+			s.State().WithoutSplitTime() == stopwatch.Running,
+	)
+	//	Output: true
+}
+
+//Show example of representation Stopwatch as string
+func ExampleStopwatch_String() {
+	s := stopwatch.New()
+	s.PressTopButton()
+	time.Sleep(1 * time.Millisecond)
+	s.PressTopButton()
+
+	fmt.Println(s)
 }
