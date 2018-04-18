@@ -7,6 +7,7 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/Tiofx/stopwatch)](https://goreportcard.com/report/github.com/Tiofx/stopwatch)
 [![CodeFactor](https://www.codefactor.io/repository/github/tiofx/stopwatch/badge/master)](https://www.codefactor.io/repository/github/tiofx/stopwatch/overview/master)
+[![BCH compliance](https://bettercodehub.com/edge/badge/Tiofx/stopwatch?branch=master)](https://bettercodehub.com/)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-go.svg)](https://forthebadge.com)
 
@@ -17,4 +18,5 @@
 [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://forthebadge.com)
 
-[![Badges](http://img.shields.io/:badges-13/13-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
+[![Badges](https://img.shields.io/badge/made-for_fun-green.svg)](http://shields.io)
+[![Badges](http://img.shields.io/:badges-15/15-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
