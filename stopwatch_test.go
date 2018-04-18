@@ -1,9 +1,9 @@
 package stopwatch_test
 
 import (
-	"time"
-	"testing"
 	"github.com/Tiofx/stopwatch"
+	"testing"
+	"time"
 )
 
 const epsilon = 5 * time.Millisecond
@@ -21,9 +21,9 @@ func TestStopwatch_StatesMove(t *testing.T) {
 	sw := stopwatch.New()
 
 	emptyMethod,
-	topButton,
-	secondButton,
-	runSplit :=
+		topButton,
+		secondButton,
+		runSplit :=
 		func() {},
 		sw.PressTopButton,
 		sw.PressSecondButton,
@@ -61,8 +61,8 @@ func TestStopwatch_Time(t *testing.T) {
 	sw := stopwatch.New()
 
 	emptyMethod,
-	topButton,
-	secondButton :=
+		topButton,
+		secondButton :=
 		func() {},
 		sw.PressTopButton,
 		sw.PressSecondButton

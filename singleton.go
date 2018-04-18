@@ -11,6 +11,6 @@ var once sync.Once
 // is inconvenient.
 func Global() *Stopwatch {
 	once.Do(func() { instance = New() })
-	
+
 	return instance
 }

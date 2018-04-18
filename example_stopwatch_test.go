@@ -1,8 +1,8 @@
 package stopwatch_test
 
 import (
-	"github.com/Tiofx/stopwatch"
 	"fmt"
+	"github.com/Tiofx/stopwatch"
 	"time"
 )
 

@@ -26,5 +26,5 @@
 	See Also
 
 	https://en.wikipedia.org/wiki/Stopwatch
- */
+*/
 package stopwatch

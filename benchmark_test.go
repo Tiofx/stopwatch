@@ -1,8 +1,8 @@
 package stopwatch_test
 
 import (
-	"testing"
 	"github.com/Tiofx/stopwatch"
+	"testing"
 )
 
 var (
