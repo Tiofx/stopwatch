@@ -1,20 +1,20 @@
 package stopwatch_test
 
 import (
-	"github.com/Tiofx/stopwatch"
+	. "github.com/Tiofx/stopwatch"
 	"testing"
 )
 
 var (
-	resSw  *stopwatch.Stopwatch
+	resSw  *Stopwatch
 	resStr string
 )
 
 func BenchmarkNew(b *testing.B) {
-	var sw *stopwatch.Stopwatch
+	var sw *Stopwatch
 
 	for i := 0; i < b.N; i++ {
-		sw = stopwatch.New()
+		sw = New()
 	}
 
 	resSw = sw
@@ -24,7 +24,7 @@ func BenchmarkNew(b *testing.B) {
 
 func BenchmarkSimple(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		sw := stopwatch.New()
+		sw := New()
 		sw.PressTopButton()
 		sw.PressTopButton()
 		sw.PressSecondButton()
@@ -35,7 +35,7 @@ func BenchmarkStopwatch_String(b *testing.B) {
 	var string string
 
 	for i := 0; i < b.N; i++ {
-		string = stopwatch.Global().String()
+		string = Global().String()
 	}
 
 	resStr = string

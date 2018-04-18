@@ -1,7 +1,7 @@
 package stopwatch_test
 
 import (
-	"github.com/Tiofx/stopwatch"
+	. "github.com/Tiofx/stopwatch"
 	"testing"
 	"time"
 )
@@ -11,14 +11,14 @@ const epsilon = 5 * time.Millisecond
 func isEqual(a, b time.Duration) bool { return time.Duration(uint(a-b)) <= epsilon }
 
 func TestStopwatch_1(t *testing.T) {
-	sw := stopwatch.New()
-	if !(sw.Display() == 0 && sw.State().WithoutSplitTime() == stopwatch.Initial) {
+	sw := New()
+	if !(sw.Display() == 0 && sw.State().WithoutSplitTime() == Initial) {
 		t.Fail()
 	}
 }
 
 func TestStopwatch_StatesMove(t *testing.T) {
-	sw := stopwatch.New()
+	sw := New()
 
 	emptyMethod,
 		topButton,
@@ -33,20 +33,20 @@ func TestStopwatch_StatesMove(t *testing.T) {
 		method   func()
 		expected interface{}
 	}{
-		{emptyMethod, stopwatch.Initial},
-		{secondButton, stopwatch.Initial},
-		{secondButton, stopwatch.Initial},
-		{topButton, stopwatch.Running},
-		{topButton, stopwatch.Stopped},
-		{secondButton, stopwatch.Initial},
-		{runSplit, stopwatch.Running.WithSplitTime()},
-		{secondButton, stopwatch.Running},
-		{secondButton, stopwatch.Running.WithSplitTime()},
-		{topButton, stopwatch.Stopped.WithSplitTime()},
-		{topButton, stopwatch.Running.WithSplitTime()},
-		{topButton, stopwatch.Stopped.WithSplitTime()},
-		{secondButton, stopwatch.Stopped},
-		{secondButton, stopwatch.Initial},
+		{emptyMethod, Initial},
+		{secondButton, Initial},
+		{secondButton, Initial},
+		{topButton, Running},
+		{topButton, Stopped},
+		{secondButton, Initial},
+		{runSplit, Running.WithSplitTime()},
+		{secondButton, Running},
+		{secondButton, Running.WithSplitTime()},
+		{topButton, Stopped.WithSplitTime()},
+		{topButton, Running.WithSplitTime()},
+		{topButton, Stopped.WithSplitTime()},
+		{secondButton, Stopped},
+		{secondButton, Initial},
 	}
 
 	for i, test := range testTable {
@@ -58,7 +58,7 @@ func TestStopwatch_StatesMove(t *testing.T) {
 }
 
 func TestStopwatch_Time(t *testing.T) {
-	sw := stopwatch.New()
+	sw := New()
 
 	emptyMethod,
 		topButton,
